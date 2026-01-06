@@ -1,0 +1,89 @@
+DEKLARASI
+    nama[50]            : string
+    matematika[50]      : real
+    ips[50]             : real
+    ipa[50]             : real
+    rata[50]            : real
+    jumlah              : integer ← 0
+    pilihan             : integer
+    i                   : integer
+    grade               : character
+
+DESKRIPSI
+    Tampilkan judul program
+
+    SELAMA true LAKUKAN
+        Tampilkan menu:
+            1. Input Siswa
+            2. Lihat Nilai
+            3. Hitung Rata-rata
+            4. Keluar
+        Input pilihan
+
+        JIKA pilihan = 1 MAKA
+            JIKA jumlah >= 50 MAKA
+                Tampilkan "Data penuh"
+            ELSE
+                Input nama[jumlah]
+                Input matematika[jumlah]
+                Input ips[jumlah]
+                Input ipa[jumlah]
+                jumlah ← jumlah + 1
+                Tampilkan "Data tersimpan"
+            ENDIF
+
+        ELSE JIKA pilihan = 2 MAKA
+            JIKA jumlah = 0 MAKA
+                Tampilkan "Belum ada data"
+            ELSE
+                Tampilkan header tabel nilai
+                UNTUK i ← 0 HINGGA jumlah - 1 LAKUKAN
+                    Tampilkan:
+                        nomor (i + 1)
+                        nama[i]
+                        matematika[i]
+                        ips[i]
+                        ipa[i]
+                SELESAI
+            ENDIF
+
+        ELSE JIKA pilihan = 3 MAKA
+            JIKA jumlah = 0 MAKA
+                Tampilkan "Belum ada data"
+            ELSE
+                UNTUK i ← 0 HINGGA jumlah - 1 LAKUKAN
+                    rata[i] ← (matematika[i] + ips[i] + ipa[i]) / 3
+                SELESAI
+
+                Tampilkan header tabel rata-rata
+                UNTUK i ← 0 HINGGA jumlah - 1 LAKUKAN
+                    JIKA rata[i] ≥ 85 MAKA
+                        grade ← 'A'
+                    ELSE JIKA rata[i] ≥ 70 MAKA
+                        grade ← 'B'
+                    ELSE JIKA rata[i] ≥ 60 MAKA
+                        grade ← 'C'
+                    ELSE JIKA rata[i] ≥ 50 MAKA
+                        grade ← 'D'
+                    ELSE
+                        grade ← 'E'
+                    ENDIF
+
+                    Tampilkan:
+                        nomor (i + 1)
+                        nama[i]
+                        rata[i]
+                        grade
+                SELESAI
+            ENDIF
+
+        ELSE JIKA pilihan = 4 MAKA
+            Tampilkan "Program selesai"
+            KELUAR dari perulangan
+
+        ELSE
+            Tampilkan "Pilihan salah"
+        ENDIF
+    SELESAI
+
+SELESAI
